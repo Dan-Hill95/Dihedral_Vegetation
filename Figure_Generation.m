@@ -239,11 +239,13 @@ mkdir(FolderName)
 % Solve Galerkin matching equation for D_m pattern and define predicted localised solution
 [Sol.x, Sol.y, Sol.usol, Sol.vsol, Sol.musol] = Initial_Guess(amp,pars);
 
+if ProbClass == 'vH'
 if ProbName == 'vH_1'
 temp1=Sol.usol - Sol.usol(end);
 temp2=Sol.vsol - Sol.vsol(end);
 Sol.usol = 30*temp1 + Sol.usol(end);
 Sol.vsol = 30*temp2 + Sol.vsol(end);
+end
 end
 
 % Implement exponential time-stepper for initial guess
