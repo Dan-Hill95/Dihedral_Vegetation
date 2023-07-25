@@ -103,7 +103,7 @@ SolnClass= 'Hex';
 % if ProbName=='vH_1'
 % amp.eps = 0.0002;
 %     elseif ProbName=='vH_2'
-% amp.eps = 0.0002;
+% amp.eps = 0.0001;
 %     end
 % elseif ProbClass=='Gi'
 % amp.eps = 0.0002;
