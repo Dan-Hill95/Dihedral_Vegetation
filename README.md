@@ -1,4 +1,4 @@
-This repository contains the MATLAB files to reproduce the data and figures from 'On the universal emergence of localised dihedral patterns in models for dryland vegetation' by Dan J. Hill (2023).
+This repository contains the MATLAB files to reproduce the data and figures from 'Predicting the emergence of localised dihedral patterns in models for dryland vegetation' by Dan J. Hill (2023).
 
 A copy of the paper can be found here: 
 
