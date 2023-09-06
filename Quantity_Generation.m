@@ -71,7 +71,7 @@ end
 quant.P1=pars.c0;
 quant.P2=pars.U0(2)./pars.U0(1);
 quant.P3=pars.U0(1)./pars.gamma;
-quant.P4=pars.c3/pars.c0;
+quant.P4=pars.c3;
 
 % Clear extra structures
 clear("FolderName","ProbName","ProbClass","SolnClass","Init","options","prob","ts","hands")
