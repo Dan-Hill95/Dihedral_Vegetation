@@ -1,6 +1,6 @@
 This repository contains the MATLAB files to reproduce the data and figures from 'Predicting the emergence of localised dihedral patterns in models for dryland vegetation' by Dan J. Hill (2023).
 
-A copy of the paper can be found here: 
+A copy of the paper can be found here: [https://arxiv.org/abs/2309.02956](https://arxiv.org/abs/2309.02956)
 
 The script _Quantity_Generation.m_ computes the qualitative predictors P_1, P_2, P_3 and P_4 from the paper for a two-component reaction-diffusion system. To choose one of the vegetation models considered in the paper, uncomment the relevant lines in the script.
 
