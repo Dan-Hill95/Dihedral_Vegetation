@@ -1,47 +1,11 @@
 %% Quantity generation for localised planar patterns in vegetation models
 % Dan J Hill (2022) - Saarland University
-
+function [quant,pars]=Quantity_Generation(ProbClass,Init)
 close all 
-clear
 clc
 
 addpath Codes
 % [In order to check individual matlab functions, see the "Codes" folder]
-
-%% Choose model - Problem class & initial guess for Turing points
-
-%%% Klausmeier %%%
-
-% ProbClass='Kl';
-% Init=[0.465, 1.809,2.200];
-% ProbName='Kl';
-
-
-%%% Klausmeier-Gray-Scott %%%
-
-% ProbClass='KG';
-% Init=[ 1.0708, 0.4669 , 1.0023];
-% ProbName='KG';
-
-
-%%% von Hardenberg - Turing point 1 %%%
-
-% ProbClass='vH';
-% Init = [0.0165, 0.173, 0.169];
-% ProbName='vH_1';
-
-
-%%% von Hardenberg - Turing point 2 %%%
-
-ProbClass='vH';
-Init = [0.271, 0.556, 0.414];
-ProbName='vH_2';
-
-%%% NFC - Gilad %%%
-
-% ProbClass='Gi';
-% Init=[0.4743,0.7678,1.6350];
-% ProbName='Gi';
 
 %% Equations, Turing points, conditions
 
@@ -74,10 +38,53 @@ quant.P3=pars.U0(1)./pars.gamma;
 quant.P4=pars.c3;
 
 % Clear extra structures
-clear("FolderName","ProbName","ProbClass","SolnClass","Init","options","prob","ts","hands")
+clear("FolderName","ProbClass","SolnClass","Init","options","prob","ts","hands")
+
+%% Print Results 
 
 % Print each predictor
-fprintf('P_1=%d\n',quant.P1);
-fprintf('P_2=%d\n',quant.P2);
-fprintf('P_3=%d\n',quant.P3);
-fprintf('P_4=%d\n',quant.P4);
+fprintf('P1=%d\n',quant.P1);
+fprintf('P2=%d\n',quant.P2);
+fprintf('P3=%d\n',quant.P3);
+fprintf('P4=%d\n',quant.P4);
+
+% Print interpretation of results
+
+% Bifurcation direction
+if quant.P1<0
+fprintf('Localised patterns emerge for %c < %d\n',956,pars.sol(3));
+elseif quant.P1>0
+fprintf('Localised patterns emerge for %c > %d\n',956, pars.sol(3));
+else
+    fprintf('Inconclusive: P1 is zero\n');
+end
+
+% Profile of spot A-type patterns
+if quant.P2<0
+phase = 'in-phase';
+elseif quant.P2>0
+phase = 'anti-phase';
+end
+if quant.P3<0
+polarity = 'gaps';
+elseif quant.P3>0
+polarity = 'peaks';
+end
+
+if quant.P2==0
+fprintf('Inconclusive: P2 is zero\n');
+elseif quant.P3==0
+fprintf('Inconclusive: P3 is zero\n');
+else
+fprintf(['Spot patterns emerge as ',phase,' ',polarity,'\n']);
+end
+
+% Emergence of ring patterns
+if quant.P4<0
+fprintf('Rings and unstable stripes do emerge\n');
+elseif quant.P4>0
+fprintf('Rings and unstable stripes do not emerge\n');
+else
+    fprintf('Inconclusive: P4 is zero\n');
+end
+end
