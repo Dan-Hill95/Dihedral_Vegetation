@@ -16,7 +16,7 @@ The script _Quantity_Generation.m_ computes the qualitative predictors P_1, P_2,
 
 Quantity_Generation(ProbClass,Init);
 
-where *ProbClass* is a two-letter string that defines the reaction-diffusion model and *Init* is an initial guess of a Turing point \[u*, v*, &Mu;*\].
+where *ProbClass* is a two-letter string that defines the reaction-diffusion model and *Init* is an initial guess of a Turing point \[u*, v*, &mu;*\].
 
 For your choice of model, you can either define your own reaction-diffusion model in _my_model.m_ and select ProbClass = 'My' with an appropriate initial guess Init, or choose one of the pre-defined vegetation models listed below:
 
