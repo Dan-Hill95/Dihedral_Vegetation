@@ -61,9 +61,9 @@ end
 
 % Profile of spot A-type patterns
 if quant.P2<0
-phase = 'in-phase';
-elseif quant.P2>0
 phase = 'anti-phase';
+elseif quant.P2>0
+phase = 'in-phase';
 end
 if quant.P3<0
 polarity = 'gaps';
